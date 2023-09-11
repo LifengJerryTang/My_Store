@@ -1,22 +1,27 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HeaderComponent } from './layout/header/header.component';
 import { SidebarComponent } from './layout/sidebar/sidebar.component';
 import {MatSidenavModule} from "@angular/material/sidenav";
 import { ProductListComponent } from './components/product-list/product-list.component';
 import { ProductItemDetailComponent } from './components/product-item-detail/product-item-detail.component';
 import { ProductItemComponent } from './components/product-item/product-item.component';
 import { ConfirmationComponent } from './components/confirmation/confirmation.component';
-import { CartComponent } from './cart/cart.component';
+import { CartComponent } from './components/cart/cart.component';
+import {MatToolbarModule} from "@angular/material/toolbar";
+import {MatButtonModule} from "@angular/material/button";
+import {MatListModule} from "@angular/material/list";
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import {MatGridListModule} from "@angular/material/grid-list";
+import {HttpClientModule} from "@angular/common/http";
+import {MatCardModule} from "@angular/material/card";
+import {NgOptimizedImage} from "@angular/common";
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent,
     SidebarComponent,
     ProductListComponent,
     ProductItemDetailComponent,
@@ -28,7 +33,15 @@ import { CartComponent } from './cart/cart.component';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MatSidenavModule
+    MatSidenavModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatListModule,
+    FontAwesomeModule,
+    MatGridListModule,
+    HttpClientModule,
+    MatCardModule,
+    NgOptimizedImage
   ],
   providers: [],
   bootstrap: [AppComponent]

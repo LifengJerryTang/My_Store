@@ -1,6 +1,36 @@
-<mat-sidenav-container>
+<mat-sidenav-container [ngClass]="['fullscreen']">
 
-  <mat-sidenav>
+  <mat-sidenav #sidenav>
+    <mat-nav-list (click)="sidenav.close()">
+      <a mat-list-item routerLink="/">
+        <fa-icon [icon]="faWarehouse"></fa-icon>
+        &nbsp;
+        <span>Product List</span>
+      </a>
 
+      <a mat-list-item routerLink="/cart">
+        <fa-icon [icon]="faCartShopping"></fa-icon>
+        &nbsp;
+        <span>Cart</span>
+      </a>
+    </mat-nav-list>
   </mat-sidenav>
+
+  <mat-toolbar color="primary">
+    <button mat-icon-button (click)="sidenav.open()">
+      <fa-icon [icon]="faBars"></fa-icon>
+    </button>
+
+    <a mat-button routerLink="/">
+      <fa-icon [icon]="faWarehouse"></fa-icon>
+      Product List
+    </a>
+
+    <a mat-button routerLink="/cart">
+      <fa-icon [icon]="faCartShopping"></fa-icon>
+      Cart
+    </a>
+  </mat-toolbar>
+
+  <router-outlet></router-outlet>
 </mat-sidenav-container>

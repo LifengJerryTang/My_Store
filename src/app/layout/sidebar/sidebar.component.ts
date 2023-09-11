@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {faBars, faCartShopping, faWarehouse} from "@fortawesome/free-solid-svg-icons";
 
 @Component({
   selector: 'app-sidebar',
@@ -7,4 +8,7 @@ import { Component } from '@angular/core';
 })
 export class SidebarComponent {
 
+  protected readonly faBars = faBars;
+  protected readonly faWarehouse = faWarehouse;
+  protected readonly faCartShopping = faCartShopping;
 }

@@ -1,1 +1,8 @@
-<p>product-list works!</p>
+<mat-grid-list [cols]="3">
+  <mat-grid-tile *ngFor="let product of products">
+    <img class="product-image"
+         [src]="product.imageURL"
+         width="50%" height="60%"
+         [alt]="product.name"/>
+  </mat-grid-tile>
+</mat-grid-list>
