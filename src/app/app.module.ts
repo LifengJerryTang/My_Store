@@ -18,6 +18,8 @@ import {MatGridListModule} from "@angular/material/grid-list";
 import {HttpClientModule} from "@angular/common/http";
 import {MatCardModule} from "@angular/material/card";
 import {NgOptimizedImage} from "@angular/common";
+import {MatSelectModule} from "@angular/material/select";
+import { StoreModule } from '@ngrx/store';
 
 @NgModule({
   declarations: [
@@ -41,7 +43,9 @@ import {NgOptimizedImage} from "@angular/common";
     MatGridListModule,
     HttpClientModule,
     MatCardModule,
-    NgOptimizedImage
+    NgOptimizedImage,
+    MatSelectModule,
+    StoreModule.forRoot({}, {})
   ],
   providers: [],
   bootstrap: [AppComponent]

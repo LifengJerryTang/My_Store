@@ -1,1 +1,25 @@
-<p>product-item works!</p>
+<mat-card class="product-card" *ngIf="product">
+  <img mat-card-image
+       src="https://plus.unsplash.com/premium_photo-1667251760504-096946b820af?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1887&q=80"
+       width="300px" height="250px"
+       [alt]="product.name"/>
+
+  <mat-card-header class="card-header">
+    <mat-card-title>{{product.name}}</mat-card-title>
+  </mat-card-header>
+
+  <mat-card-footer>
+    <mat-form-field appearance="outline" class="count-select">
+      <mat-select  [(value)]="selectedCount" placeholder="{{selectedCount}}">
+        <mat-option value="1">1</mat-option>
+        <mat-option value="2">2</mat-option>
+        <mat-option value="3">3</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </mat-card-footer>
+
+  <mat-card-actions class="card-actions">
+    <button mat-raised-button color="primary" (click)="addToCart()">Add to Cart</button>
+  </mat-card-actions>
+
+</mat-card>

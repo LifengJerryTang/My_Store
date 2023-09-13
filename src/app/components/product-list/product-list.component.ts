@@ -11,6 +11,7 @@ export class ProductListComponent implements OnInit{
 
   products: Product[] = []
 
+
   constructor(private productListService: ProductListService) {
   }
 
@@ -19,6 +20,10 @@ export class ProductListComponent implements OnInit{
       this.products = products;
       console.log(this.products);
     })
+  }
+
+  addSelectedProductToCart(product: Product, count: number): void {
+    alert(`SUCCESS! Added ${count} ${product.name} to cart!`);
   }
 
 }
