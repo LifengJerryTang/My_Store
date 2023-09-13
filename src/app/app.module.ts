@@ -21,6 +21,7 @@ import {NgOptimizedImage} from "@angular/common";
 import {MatSelectModule} from "@angular/material/select";
 import { StoreModule } from '@ngrx/store';
 
+
 @NgModule({
   declarations: [
     AppComponent,
