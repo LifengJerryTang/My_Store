@@ -20,6 +20,8 @@ import {MatCardModule} from "@angular/material/card";
 import {NgOptimizedImage} from "@angular/common";
 import {MatSelectModule} from "@angular/material/select";
 import { StoreModule } from '@ngrx/store';
+import {StoreDevtoolsModule} from '@ngrx/store-devtools';
+import {cartReducer} from "./state/cart/cart.reducer";
 
 
 @NgModule({
@@ -46,7 +48,8 @@ import { StoreModule } from '@ngrx/store';
     MatCardModule,
     NgOptimizedImage,
     MatSelectModule,
-    StoreModule.forRoot({}, {})
+    StoreModule.forRoot({cart: cartReducer}, {}),
+    StoreDevtoolsModule.instrument({maxAge: 25, logOnly: false})
   ],
   providers: [],
   bootstrap: [AppComponent]
