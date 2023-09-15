@@ -2,11 +2,11 @@ import { Component } from '@angular/core';
 import {faBars, faCartShopping, faWarehouse} from "@fortawesome/free-solid-svg-icons";
 
 @Component({
-  selector: 'app-sidebar',
-  templateUrl: './sidebar.component.html',
-  styleUrls: ['./sidebar.component.css']
+  selector: 'app-navbar',
+  templateUrl: './navbar.component.html',
+  styleUrls: ['./navbar.component.css']
 })
-export class SidebarComponent {
+export class NavbarComponent {
 
   protected readonly faBars = faBars;
   protected readonly faWarehouse = faWarehouse;

@@ -13,7 +13,7 @@ export class ConfirmationComponent implements OnInit{
   totalPrice: number = 0;
   name: string = 'Jerry Tang';
 
-  constructor (private router: Router, private route: ActivatedRoute) {
+  constructor (private route: ActivatedRoute) {
 
   }
 

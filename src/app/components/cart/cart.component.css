@@ -52,6 +52,11 @@ img {
   font-size: 25px;
 }
 
+.item-list {
+  margin-right: 10%;
+}
+
 mat-form-field {
   display: block;
 }
+

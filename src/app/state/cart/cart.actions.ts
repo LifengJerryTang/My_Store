@@ -14,6 +14,11 @@ export const updateCartItem = createAction(
   props<{cartItem: CartItem}>()
 )
 
+export const deleteCartItem = createAction(
+  "[Cart Component] Delete Item in Cart",
+  props<{cartItem: CartItem}>()
+)
+
 export const clearCart = createAction(
   "[Cart Component] Clearing Cart"
 )

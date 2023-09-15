@@ -1,5 +1,5 @@
-<div class="cart-container">
-  <div>
+<div class="cart-container" *ngIf="cartItems.length > 0">
+  <div class="item-list">
     <div class="cart-item" *ngFor="let cartItem of cartItems">
       <img [src]="cartItem.product.imageURL"
            [alt]="cartItem.product.name + ' ' + cartItem.product.description"/>
@@ -40,6 +40,6 @@
   </form>
 </div>
 
-<!--<div *ngIf="cartItems.length === 0" class="alert">-->
-<!--  <strong>You cart is empty!</strong>-->
-<!--</div>-->
+<div *ngIf="cartItems.length === 0" class="alert">
+  <strong>You cart is empty! :(</strong>
+</div>

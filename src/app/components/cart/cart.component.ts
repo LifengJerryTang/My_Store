@@ -50,6 +50,13 @@ export class CartComponent implements OnInit {
 
   changeCartItemAmount(item: CartItem, newAmount: number) {
 
+    if (newAmount === 0) {
+      this.cartService.deleteCartItem(item);
+      alert(`Deleted ${item.product.name} successfully!`);
+
+      return;
+    }
+
     let updatedItem = {...item, count: newAmount};
 
     this.cartService.updateCartItem(updatedItem);

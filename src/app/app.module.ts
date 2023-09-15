@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { SidebarComponent } from './layout/sidebar/sidebar.component';
+import { NavbarComponent } from './layout/navbar/navbar.component';
 import {MatSidenavModule} from "@angular/material/sidenav";
 import { ProductListComponent } from './components/product-list/product-list.component';
 import { ProductItemDetailComponent } from './components/product-item-detail/product-item-detail.component';
@@ -31,7 +31,7 @@ import {ReactiveFormsModule} from "@angular/forms";
 @NgModule({
   declarations: [
     AppComponent,
-    SidebarComponent,
+    NavbarComponent,
     ProductListComponent,
     ProductItemDetailComponent,
     ProductItemComponent,
