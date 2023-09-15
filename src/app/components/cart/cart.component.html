@@ -1,1 +1,22 @@
-<p>cart works!</p>
+<div class="cart-container">
+  <div>
+    <div class="cart-item" *ngFor="let cartItem of cartItems">
+      <img [src]="cartItem.product.imageURL"
+           [alt]="cartItem.product.name + ' ' + cartItem.product.description"/>
+
+      <div>
+        <h2>{{cartItem.product.name}}</h2>
+        <p>{{cartItem.product.price}}</p>
+        <mat-form-field>
+          <mat-label>Amount</mat-label>
+          <input matInput type="number" [value]="cartItem.count + ''" (click)="increaseCartItemAmount(cartItem)">
+        </mat-form-field>
+      </div>
+    </div>
+
+  </div>
+
+  <div>
+
+  </div>
+</div>

@@ -9,3 +9,8 @@ export const addToCart = createAction(
 export const loadItemsFromCart =
   createAction("[Cart Component] Load Items from Cart");
 
+export const updateCartItem = createAction(
+  "[Cart Component] Update Item in Cart",
+  props<{cartItem: CartItem}>()
+)
+

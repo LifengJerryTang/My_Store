@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-import {Product} from "../models/product";
+import {Product} from "../../models/product";
 import {Observable} from "rxjs";
 import {Store} from "@ngrx/store";
-import {addToCart} from "../state/cart/cart.actions";
-import {CartItem} from "../models/cart-item";
-import {AppState} from "../state/app.state";
+import {addToCart} from "../../state/cart/cart.actions";
+import {CartItem} from "../../models/cart-item";
+import {AppState} from "../../state/app.state";
 
 @Injectable({
   providedIn: 'root'

@@ -1,5 +1,5 @@
 import {createReducer, on} from "@ngrx/store";
-import {addToCart, loadItemsFromCart} from "./cart.actions";
+import {addToCart, loadItemsFromCart, updateCartItem} from "./cart.actions";
 import {CartItem} from "../../models/cart-item";
 
 
@@ -20,6 +20,16 @@ export const cartReducer = createReducer(
     }
   )),
 
-  on(loadItemsFromCart, (state: CartState): CartState => ({...state}))
+  on(loadItemsFromCart, (state: CartState): CartState => ({...state})),
+
+  on(updateCartItem, (state: CartState, {cartItem}): CartState => {
+    let cartItems = [...state.cartItems];
+    let itemIndex = state.cartItems.findIndex((item: CartItem) =>
+      item.product.id === cartItem.product.id);
+    console.log(cartItem)
+    cartItems[itemIndex] = cartItem;
+
+    return {cartItems}
+  })
 
 )
