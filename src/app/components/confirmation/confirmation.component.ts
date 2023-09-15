@@ -11,6 +11,7 @@ import {ActivatedRoute, Router} from "@angular/router";
 export class ConfirmationComponent implements OnInit{
 
   totalPrice: number = 0;
+  name: string = 'Jerry Tang';
 
   constructor (private router: Router, private route: ActivatedRoute) {
 
@@ -18,7 +19,6 @@ export class ConfirmationComponent implements OnInit{
 
   ngOnInit(): void {
     this.totalPrice = +(this.route.snapshot.paramMap.get('totalPrice') as string);
-    console.log(this.totalPrice)
   }
 
 }
