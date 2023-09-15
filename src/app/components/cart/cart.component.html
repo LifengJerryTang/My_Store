@@ -7,16 +7,39 @@
       <div>
         <h2>{{cartItem.product.name}}</h2>
         <p>{{cartItem.product.price}}</p>
-        <mat-form-field>
+        <mat-form-field appearance="outline">
           <mat-label>Amount</mat-label>
-          <input matInput type="number" [value]="cartItem.count + ''" (click)="increaseCartItemAmount(cartItem)">
+          <input matInput type="number" #itemAmount
+                 [value]="cartItem.count + ''" min="0" step="1"
+                 (change)="changeCartItemAmount(cartItem, +itemAmount.value)">
         </mat-form-field>
       </div>
     </div>
-
+    <h1>
+      Total: ${{totalPrice}}
+    </h1>
   </div>
 
-  <div>
-
-  </div>
+  <form [formGroup]="checkoutForm" (submit)="checkout()" >
+    <mat-form-field appearance="outline">
+      <mat-label>Full name</mat-label>
+      <input matInput placeholder="(minimum 3 characters)" formControlName="fullName">
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Address</mat-label>
+      <input matInput placeholder="(minimum 6 characters)" formControlName="address">
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Credit Card Number</mat-label>
+      <input matInput placeholder="(16-digit number)" formControlName="creditCardNum">
+    </mat-form-field>
+    <p><em>We will never share your payment details with anyone else!</em></p>
+    <button mat-raised-button
+            color="primary"
+            type="submit">Submit</button>
+  </form>
 </div>
+
+<!--<div *ngIf="cartItems.length === 0" class="alert">-->
+<!--  <strong>You cart is empty!</strong>-->
+<!--</div>-->

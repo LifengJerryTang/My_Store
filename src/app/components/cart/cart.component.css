@@ -43,3 +43,15 @@ img {
   justify-content: center;
   margin-top: 64px;
 }
+
+.alert {
+  display: flex;
+  justify-content: center;
+  margin-top: 64px;
+  color: deepskyblue;
+  font-size: 25px;
+}
+
+mat-form-field {
+  display: block;
+}

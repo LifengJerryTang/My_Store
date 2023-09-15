@@ -25,6 +25,7 @@ import {cartReducer} from "./state/cart/cart.reducer";
 import {CartService} from "./services/cart/cart.service";
 import {ProductService} from "./services/product/product.service";
 import {MatInputModule} from "@angular/material/input";
+import {ReactiveFormsModule} from "@angular/forms";
 
 
 @NgModule({
@@ -53,7 +54,8 @@ import {MatInputModule} from "@angular/material/input";
     MatSelectModule,
     StoreModule.forRoot({cart: cartReducer}, {}),
     StoreDevtoolsModule.instrument({maxAge: 25, logOnly: false}),
-    MatInputModule
+    MatInputModule,
+    ReactiveFormsModule
   ],
   providers: [CartService, ProductService],
   bootstrap: [AppComponent]

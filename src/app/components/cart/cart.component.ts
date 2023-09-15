@@ -1,37 +1,71 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {CartService} from "../../services/cart/cart.service";
 import {CartItem} from "../../models/cart-item";
-import {updateCartItem} from "../../state/cart/cart.actions";
+import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
   styleUrls: ['./cart.component.css']
 })
-export class CartComponent implements OnInit, OnDestroy{
+export class CartComponent implements OnInit {
 
   cartItems: CartItem[] = [];
-  constructor(private cartService: CartService) {
+  totalPrice: number = 0;
+
+  checkoutForm: FormGroup = this.fb.group({
+    fullName: new FormControl('', [Validators.required, Validators.minLength(3)]),
+    address: new FormControl('', [Validators.required, Validators.minLength(3)]),
+    creditCardNum: new FormControl('',
+      [Validators.required,
+                    Validators.minLength(16),
+                    Validators.maxLength(16)])
+  })
+
+  constructor(private cartService: CartService, private fb: FormBuilder,
+              private router: Router) {
 
   }
 
   ngOnInit() {
     this.cartService.allCartItems.subscribe((items: CartItem[]) => {
       this.cartItems = items;
-      console.log(this.cartItems)
-    })
+      this.calcTotalPrice();
+    });
 
   }
 
-  ngOnDestroy() {
-    console.log("Cart destroyed")
+  calcTotalPrice(): void {
+
+    let total: number = 0;
+
+    for (let cartItem of this.cartItems) {
+      total += cartItem.count * cartItem.product.price
+    }
+
+    this.totalPrice = total;
+
   }
 
+  changeCartItemAmount(item: CartItem, newAmount: number) {
 
-  increaseCartItemAmount(item: CartItem) {
-
-    let updatedItem = {...item, count: item.count + 1};
+    let updatedItem = {...item, count: newAmount};
 
     this.cartService.updateCartItem(updatedItem);
+
+  }
+
+  checkout(): void {
+    if (this.checkoutForm.valid) {
+
+      this.cartService.clearCart();
+
+      let totalPrice = this.totalPrice;
+      this.router.navigate(['confirmation', {totalPrice}]);
+
+    } else {
+      alert('Check your entered data please!');
+    }
   }
 }

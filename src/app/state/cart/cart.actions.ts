@@ -14,3 +14,7 @@ export const updateCartItem = createAction(
   props<{cartItem: CartItem}>()
 )
 
+export const clearCart = createAction(
+  "[Cart Component] Clearing Cart"
+)
+
