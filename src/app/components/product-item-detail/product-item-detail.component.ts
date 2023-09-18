@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Product} from "../../models/product";
 import {ActivatedRoute, Router} from "@angular/router";
 import {ProductService} from "../../services/product/product.service";
+import {AuthService} from "@auth0/auth0-angular";
 
 @Component({
   selector: 'app-product-item-detail',
@@ -13,7 +14,8 @@ export class ProductItemDetailComponent implements OnInit{
   currentProduct: Product | undefined;
   selectedCount: number = 1;
 
-  constructor( private route: ActivatedRoute, private productService: ProductService) {
+  constructor( private route: ActivatedRoute, private auth: AuthService,
+               private productService: ProductService) {
   }
   ngOnInit(): void {
 
@@ -21,13 +23,14 @@ export class ProductItemDetailComponent implements OnInit{
 
     this.productService.products.subscribe((products: Product[]) => {
       this.currentProduct = products.filter((product) => product.id === +productId)[0];
-      console.log(this.currentProduct)
     })
 
   }
 
   addProductToCart(): void {
+
     this.productService.addToCart(this.currentProduct!, this.selectedCount);
     alert(`SUCCESS! Added ${this.selectedCount} ${this.currentProduct!.name} to cart!`);
+
   }
 }

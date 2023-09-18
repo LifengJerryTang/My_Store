@@ -1,5 +1,6 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {Product} from "../../models/product";
+import {AuthService} from "@auth0/auth0-angular";
 
 @Component({
   selector: 'app-product-item',
@@ -12,6 +13,9 @@ export class ProductItemComponent {
   selectedCount: number = 1;
 
   @Output() addToCartEmitter: EventEmitter<number> = new EventEmitter<number>();
+
+  constructor() {
+  }
 
   addToCart(): void {
     this.addToCartEmitter.emit(this.selectedCount);

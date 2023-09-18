@@ -3,6 +3,7 @@ import {CartService} from "../../services/cart/cart.service";
 import {CartItem} from "../../models/cart-item";
 import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {Router} from "@angular/router";
+import {AuthService} from "@auth0/auth0-angular";
 
 @Component({
   selector: 'app-cart',
@@ -24,7 +25,7 @@ export class CartComponent implements OnInit {
   })
 
   constructor(private cartService: CartService, private fb: FormBuilder,
-              private router: Router) {
+              private router: Router, private auth: AuthService) {
 
   }
 
@@ -64,15 +65,19 @@ export class CartComponent implements OnInit {
   }
 
   checkout(): void {
+
     if (this.checkoutForm.valid) {
+
+      let totalPrice = this.totalPrice;
+      let name: string = this.checkoutForm.controls['fullName'].value;
 
       this.cartService.clearCart();
 
-      let totalPrice = this.totalPrice;
-      this.router.navigate(['confirmation', {totalPrice}]);
+      this.router.navigate(['confirmation', {name, totalPrice}]);
 
     } else {
       alert('Check your entered data please!');
     }
+
   }
 }

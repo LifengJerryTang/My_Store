@@ -30,6 +30,14 @@
       <fa-icon [icon]="faCartShopping"></fa-icon>
       Cart
     </a>
+    <a mat-button class="login" (click)="login()" *ngIf="!(auth.isAuthenticated$ | async)">
+      <fa-icon [icon]="faRightToBracket"></fa-icon>
+      Login
+    </a>
+    <a mat-button class="logout" (click)="logout()" *ngIf="auth.isAuthenticated$ | async">
+      <fa-icon [icon]="faRightToBracket"></fa-icon>
+      Logout
+    </a>
   </mat-toolbar>
 
   <router-outlet></router-outlet>

@@ -20,12 +20,14 @@ import {MatCardModule} from "@angular/material/card";
 import {NgOptimizedImage} from "@angular/common";
 import {MatSelectModule} from "@angular/material/select";
 import { StoreModule } from '@ngrx/store';
+import {AuthModule} from "@auth0/auth0-angular";
 import {StoreDevtoolsModule} from '@ngrx/store-devtools';
 import {cartReducer} from "./state/cart/cart.reducer";
 import {CartService} from "./services/cart/cart.service";
 import {ProductService} from "./services/product/product.service";
 import {MatInputModule} from "@angular/material/input";
-import {ReactiveFormsModule} from "@angular/forms";
+import {ReactiveFormsModule} from "@angular/forms"
+import {environment as env} from '../environments/environment';
 
 
 @NgModule({
@@ -36,7 +38,7 @@ import {ReactiveFormsModule} from "@angular/forms";
     ProductItemDetailComponent,
     ProductItemComponent,
     ConfirmationComponent,
-    CartComponent
+    CartComponent,
   ],
   imports: [
     BrowserModule,
@@ -55,7 +57,14 @@ import {ReactiveFormsModule} from "@angular/forms";
     StoreModule.forRoot({cart: cartReducer}, {}),
     StoreDevtoolsModule.instrument({maxAge: 25, logOnly: false}),
     MatInputModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AuthModule.forRoot({
+      domain: 'dev-qc2wldyjtnembiui.us.auth0.com',
+      clientId: '6dlyzaKjN8Pli3d5kVuppqBCs5AN7Ifd',
+      authorizationParams: {
+        redirect_uri: window.location.origin
+      }
+    })
   ],
   providers: [CartService, ProductService],
   bootstrap: [AppComponent]
