@@ -27,8 +27,6 @@ import {CartService} from "./services/cart/cart.service";
 import {ProductService} from "./services/product/product.service";
 import {MatInputModule} from "@angular/material/input";
 import {ReactiveFormsModule} from "@angular/forms"
-import {environment as env} from '../environments/environment';
-
 
 @NgModule({
   declarations: [
