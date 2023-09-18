@@ -1,7 +1,7 @@
 <div class="cart-container" *ngIf="cartItems.length > 0">
   <div class="item-list">
     <div class="cart-item" *ngFor="let cartItem of cartItems">
-      <img [src]="cartItem.product.imageURL"
+      <img [src]="cartItem.product.url"
            [alt]="cartItem.product.name + ' ' + cartItem.product.description"/>
 
       <div>

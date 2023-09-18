@@ -1,23 +1,27 @@
 <div *ngIf="currentProduct" class="detail-container">
-  <img mat-card-image [src]="currentProduct.imageURL" [alt]="currentProduct.name"/>
+  <img mat-card-image [src]="currentProduct.url" [alt]="currentProduct.name"/>
 
   <div class="detail-item">
     <h1>{{currentProduct.name}}</h1>
     <p>{{currentProduct.price}}</p>
     <p>{{currentProduct.description}}</p>
-    <mat-form-field appearance="outline" class="count-select">
-      <mat-select  [(value)]="selectedCount" placeholder="{{selectedCount}}">
-        <mat-option value="1">1</mat-option>
-        <mat-option value="2">2</mat-option>
-        <mat-option value="3">3</mat-option>
-        <mat-option value="4">4</mat-option>
-        <mat-option value="5">5</mat-option>
-        <mat-option value="6">6</mat-option>
-        <mat-option value="7">7</mat-option>
-        <mat-option value="8">8</mat-option>
-        <mat-option value="9">9</mat-option>
-      </mat-select>
-    </mat-form-field>
-    <button mat-raised-button color="accent" (click)="addProductToCart()">Add to Cart</button>
+   <form (ngSubmit)="addProductToCart()">
+     <mat-form-field appearance="outline" class="count-select" >
+       <mat-select  [(ngModel)]="selectedCount" placeholder="{{selectedCount}}"
+                    (ngModelChange)="selectionChanged($event)" [ngModelOptions]="{ standalone: true }">
+         <mat-option value="1">1</mat-option>
+         <mat-option value="2">2</mat-option>
+         <mat-option value="3">3</mat-option>
+         <mat-option value="4">4</mat-option>
+         <mat-option value="5">5</mat-option>
+         <mat-option value="6">6</mat-option>
+         <mat-option value="7">7</mat-option>
+         <mat-option value="8">8</mat-option>
+         <mat-option value="9">9</mat-option>
+       </mat-select>
+     </mat-form-field>
+     <button mat-raised-button color="accent" type="submit">Add to Cart</button>
+   </form>
+
   </div>
 </div>

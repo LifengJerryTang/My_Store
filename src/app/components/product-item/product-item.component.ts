@@ -20,4 +20,8 @@ export class ProductItemComponent {
   addToCart(): void {
     this.addToCartEmitter.emit(this.selectedCount);
   }
+
+  selectionChanged(newSelection: number) {
+    this.selectedCount = newSelection;
+  }
 }

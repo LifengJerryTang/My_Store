@@ -33,4 +33,9 @@ export class ProductItemDetailComponent implements OnInit{
     alert(`SUCCESS! Added ${this.selectedCount} ${this.currentProduct!.name} to cart!`);
 
   }
+
+  selectionChanged(newSelection: number) {
+    console.log(newSelection)
+    this.selectedCount = newSelection;
+  }
 }

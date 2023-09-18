@@ -26,7 +26,7 @@ import {cartReducer} from "./state/cart/cart.reducer";
 import {CartService} from "./services/cart/cart.service";
 import {ProductService} from "./services/product/product.service";
 import {MatInputModule} from "@angular/material/input";
-import {ReactiveFormsModule} from "@angular/forms"
+import {FormsModule, ReactiveFormsModule} from "@angular/forms"
 
 @NgModule({
   declarations: [
@@ -62,7 +62,8 @@ import {ReactiveFormsModule} from "@angular/forms"
       authorizationParams: {
         redirect_uri: window.location.origin
       }
-    })
+    }),
+    FormsModule
   ],
   providers: [CartService, ProductService],
   bootstrap: [AppComponent]
